@@ -6,3 +6,6 @@ English：Hello everyone! This is a website!
 I'm Maheng Chen, also known as marchchen!
 
 备注：文件比较杂乱，有好多之前剩下的文件但是功能被弃用，可以自行尝试使用弃用的功能，不过它们极不稳定！（不推荐尝试）
+
+
+欢迎各位参与到该网站的优化中，贡献者会在网页下方显示！（每月更新1次）
