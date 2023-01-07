@@ -1,119 +1,20 @@
-#include<iostream>
-#include<string>					// string
-#include<stack>
-#include<ctype.h>					// isdigit()
-#include<vector>
-using namespace std;
-
-
-stack<string> dat;					// 数字
-stack<char> op;						// 符号
-   
-int pd(char c)
-{
-	if(c == '+' || c == '-')	return 1;
-	if(c == '*' || c == '/')	return 2;
-	if(c == '^')	return 3;
-	return 0;						// 左括号
-}
-
-
-int main()
-{
-	string s;
-	cin >> s;
-	
-	// 分离数字和符号
-	// 数字入栈
-	// 符号：
-	// 括号：
-	// 运算符：
-	
-	string num = "";
-	for(int i = 0; i < s.size(); i++)
-	{
-		if( isdigit(s[i]) )			// 数字
-		{
-			num += s[i];			// string + char 
-			if( i == s.size()-1 || !isdigit(s[i+1]) )		// 判断数字是否提取完成
-			{
-				dat.push(num);
-				num = "";
-			}	
-		}
-		else
-		{
-			// 括号：左括号 （直接入栈）
-			// 右括号(出符号栈入数字栈，直到遇到左括号；并把左括号出栈)
-			
-			if(s[i] == '(')   op.push(s[i]);
-			else if(s[i] == ')')
-			{
-				while(op.top() != '(')
-				{
-					dat.push( string( 1, op.top() ) );		// char 转 string
-					op.pop();
-				}
-				op.pop();
+<HTML>
+<HEAD>
+<title>chenmaheng的GITHUB小站/BLOG</title>
+  <style>
+			body{
+				background-size: 100% ;
 			}
-			else
-			// 运算符: 栈空直接入；优先级高于栈顶，入栈；
-			// 不高于，出栈， 直到 栈空、优先级高于栈顶； 遇到左括号			
-			{
-				if(op.empty())		op.push(s[i]);
-				else if(s[i] == '^' && op.top() == '^')	op.push('^');
-				else
-				{
-					int p1 = pd( s[i] );
-					int p2 = pd( op.top() );
-					if(p1 > p2)		op.push(s[i]);
-					else
-					{
-						while( !op.empty() && p1 <= p2 && op.top() != '(')
-						{
-							dat.push( string(1, op.top()   )   );
-							op.pop();
-							
-							if(!op.empty() ) p2 = pd( op.top() );
-						}
-						op.push(s[i]);	
-					}
-	
-				}
-			}
-				
-				
-		}		
-	}
-		
-	
-	
-	// 符号栈所有元素放到数字站
-	while(!op.empty())	
-	{
-		dat.push( string(1, op.top()) );
-		op.pop();
-	}
-		
-	// 输出
-	vector<string> ans(dat.size());
-	for(int i = ans.size()-1; i >= 0; i--)
-	{
-		ans[i] = dat.top();
-		dat.pop();
-	}
-	
-	for(int i = 0; i <= ans.size()-1; i++)
-		cout << ans[i] << " ";
-	cout << endl;
-	
-	
-
-	
-	
-	
-	
-	
-	
- 	return 0;
-}
+		</style>
+</HEAD>
+<BODY>
+	<body background="/bg.jpg" >
+		<a href="chenmaheng.github.io">返回主页</a>
+	    <br>
+<H3>BLOG</H3>
+<H3>文章和视频：</H3>
+<a href="https://www.bilibili.com/video/BV1114y1w7PP/">P3.14P下载器</a>
+<a href="https://www.bilibili.com/video/BV15D4y1v7pY/">【MC】矿车线路（第一期）</a>
+<a href="https://www.bilibili.com/video/BV1ia4y1f745/">用电脑打电话</a>
+</BODY>
+</HTML>
