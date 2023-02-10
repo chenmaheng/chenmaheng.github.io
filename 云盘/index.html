@@ -1,22 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+</head>
+<body>
 
-
-
-<HTML>
-  <HEAD>
-    <TITLE>云盘快捷上传文件（beta）</TITLE>
-    <style>
-			body{
-				background-size: 100% ;
-			}
-		</style>
-  </HEAD>
-  <BODY>
-    <body background="/bg.jpg" >
-	    <a href="chenmaheng.github.io">返回主页</a>
-	    <br>
-      <form action="/" method="post" enctype="multipart/form-data">
-    <div><input type="file" multiple="multiple" accept="image/*" name="image"></div>
-    <div><input type="submit" value="上传"></div>
+<form method="post" enctype="multipart/form-data" action="http://localhost:8099/upload">
+    <p>请选择要上传的文件：</p>
+    <p><input type="file" name="file" /></p>
+    <p><input type="submit" value="上传" /></p>
 </form>
-  </BODY>
-</HTML>
+<!--以上代码中，`<form>`的`method`属性值必须是`post`，`enctype`属性值必须是`multipart/form-data`，且上传控件的`type`属性值必须是`file`。-->
+</body>
+</html>
